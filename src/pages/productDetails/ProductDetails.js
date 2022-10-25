@@ -73,12 +73,7 @@ class ProductDetails extends Component {
         name: item.name,
         value:
           item.name === 'Color'
-            ? [
-                ...item?.items.filter(
-                  (item) => item.value !== item?.items[colorIndex].value
-                ),
-                item?.items[colorIndex].value,
-              ]
+            ? item?.items[colorIndex].value
             : item.name === 'Size'
             ? item?.items[sizeIndex].value
             : item.name === 'Capacity'
