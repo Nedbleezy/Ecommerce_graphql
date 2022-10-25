@@ -1,0 +1,23 @@
+.cartHeading {
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+.cartItems {
+  border-top: 1.7px solid var(--offW);
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cardright {
+  width: 30%;
+}
+.cardleft {
+  width: 25%;
+}
+
+.carousel {
+  display: flex;
+  overflow: auto;
+  position: relative;
+}
