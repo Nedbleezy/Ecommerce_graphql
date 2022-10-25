@@ -365,7 +365,7 @@ class ProductDetails extends Component {
                     textAlign: 'center',
                   }}
                   onClick={() =>
-                    console.log({
+                    this.props.addToCart({
                       id,
                       name,
                       brand,
