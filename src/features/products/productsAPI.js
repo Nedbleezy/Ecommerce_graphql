@@ -10,7 +10,7 @@ export const getALLproducts = createAsyncThunk(
   'product/fetchAllproducts',
   () => {
     return axios
-      .post('https://apollo-ecommerce-backend.herokuapp.com/', {
+      .post('http://localhost:4000/graphgl', {
         query: FETCH_PRODUCT_BY_CATEGORY,
         variables: {
           input: {
@@ -28,7 +28,7 @@ export const getproductClothes = createAsyncThunk(
   'product/fetchproductClothes',
   (clothes) => {
     return axios
-      .post('https://apollo-ecommerce-backend.herokuapp.com/', {
+      .post('http://localhost:4000/graphgl', {
         query: FETCH_PRODUCT_BY_CATEGORY,
         variables: {
           input: {
@@ -46,7 +46,7 @@ export const getproductTech = createAsyncThunk(
   'product/fetchproductTech',
   (tech) => {
     return axios
-      .post('https://apollo-ecommerce-backend.herokuapp.com/', {
+      .post('http://localhost:4000/graphgl', {
         query: FETCH_PRODUCT_BY_CATEGORY,
         variables: {
           input: {
@@ -63,7 +63,7 @@ export const getAllCurrencies = createAsyncThunk(
   'product/fetchcurrencies',
   () => {
     return axios
-      .post('https://apollo-ecommerce-backend.herokuapp.com/', {
+      .post('http://localhost:4000/graphgl', {
         query: ALL_CURRENCIES,
       })
       .then((res) => {
@@ -76,7 +76,7 @@ export const getAllCategories = createAsyncThunk(
   'product/fetchallCategories',
   () => {
     return axios
-      .post('https://apollo-ecommerce-backend.herokuapp.com/', {
+      .post('http://localhost:4000/graphgl', {
         query: ALL_PRODUCT_CATEGORIES,
       })
       .then((res) => {

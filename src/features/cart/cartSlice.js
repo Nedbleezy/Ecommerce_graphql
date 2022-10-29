@@ -67,7 +67,6 @@ export const cartSlice = createSlice({
         JSON.stringify(existItem.selectedAttr) !==
           JSON.stringify(Newitem.selectedAttr)
       ) {
-        console.log('here is already');
         state.CartItems.push({ ...Newitem, qty: 1 });
       } else if (
         existItem &&
