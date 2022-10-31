@@ -6,6 +6,7 @@ import styles from './cartStyles.module.css';
 
 class Cart extends Component {
   render() {
+    console.log(this.props.ReduxStore.cart.CartItems);
     return (
       <div style={{ paddingBottom: '2rem' }}>
         <h2 className={styles.cartHeading}>CART</h2>
@@ -33,10 +34,17 @@ class Cart extends Component {
                 </div>
               </div>
 
-              {item.selectedAttr.length > 0 &&
-                item.selectedAttr.map((attribute, i) => (
+              {/* order left part */}
+              {item.attributes.length > 0 &&
+                item.attributes.map((attribute, i) => (
                   <div key={i}>
-                    <h4>{attribute.name}</h4>
+                    <h4
+                      style={{
+                        fontSize: '13px',
+                      }}
+                    >
+                      {attribute.name}
+                    </h4>
                     <div>
                       <div
                         style={{
@@ -45,129 +53,202 @@ class Cart extends Component {
                           marginRight: 5,
                         }}
                       >
-                        {attribute.name === 'Color' && (
-                          <div>
-                            <button
+                        {attribute.name === 'Color' &&
+                          attribute.items.map((u, c) => (
+                            <div key={u.id}>
+                              <button
+                                style={{
+                                  border: `${
+                                    c === item.colorIndex
+                                      ? '3px solid var(--green)'
+                                      : '1px solid #1D1F22'
+                                  }`,
+                                  textAlign: 'center',
+                                  paddingTop: 3,
+                                  cursor: 'pointer',
+                                  marginRight: 7,
+                                  marginTop: 10,
+                                  marginBottom: 5,
+                                  background: `${u.value}`,
+                                  width: `${
+                                    attribute.name === 'Size' ||
+                                    attribute.name === 'Color'
+                                      ? '20px'
+                                      : ''
+                                  }`,
+                                  height: `${
+                                    attribute.name === 'Size' ||
+                                    attribute.name === 'Color'
+                                      ? '20px'
+                                      : ''
+                                  }`,
+                                }}
+                              ></button>
+                            </div>
+                          ))}
+                        {attribute.name === 'Size' &&
+                          attribute.items.map((s, index) => (
+                            <div
                               style={{
-                                border: '1px solid #1D1F22',
+                                display: 'flex',
+                                alignItems: 'center',
                                 textAlign: 'center',
-                                paddingTop: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                marginBottom: 5,
-                                background: `${attribute.value}`,
-                                width: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '20px'
-                                    : ''
-                                }`,
-                                height: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '20px'
-                                    : ''
-                                }`,
+                                marginBottom: 10,
                               }}
-                            ></button>
-                          </div>
-                        )}
-
-                        {attribute.name === 'Size' && (
-                          <div>
-                            <button
-                              style={{
-                                border: '1px solid #1D1F22',
-                                textAlign: 'center',
-                                paddingTop: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                marginBottom: 5,
-                                background: 'var(--green)',
-                                color: '#fff',
-                                width: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '20px'
-                                    : ''
-                                }`,
-                                height: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '20px'
-                                    : ''
-                                }`,
-                              }}
+                              key={s.id}
                             >
-                              {' '}
-                              {attribute.value}
-                            </button>
-                          </div>
-                        )}
+                              <button
+                                style={{
+                                  textAlign: 'center',
+                                  padding: 3,
+                                  cursor: 'pointer',
+                                  marginRight: 7,
+                                  marginTop: 10,
+                                  background: `${
+                                    index === item.sizeIndex
+                                      ? ' var(--green)'
+                                      : ''
+                                  }`,
+                                  color: `${
+                                    index === item.sizeIndex ? '#fff' : ''
+                                  }`,
+                                  border: `${
+                                    index === item.sizeIndex
+                                      ? '3px solid var(--green)'
+                                      : '1px solid #1D1F22'
+                                  }`,
+                                  width: `${
+                                    attribute.name === 'Size' ||
+                                    attribute.name === 'Color'
+                                      ? '30px'
+                                      : ''
+                                  }`,
+                                  height: `${
+                                    attribute.name === 'Size' ||
+                                    attribute.name === 'Color'
+                                      ? '30px'
+                                      : ''
+                                  }`,
+                                }}
+                              >
+                                {s.value}
+                              </button>
+                            </div>
+                          ))}
 
-                        {attribute.name === 'Capacity' && (
-                          <div>
-                            <button
+                        {attribute.name === 'Capacity' &&
+                          attribute.items.map((c, i) => (
+                            <div
                               style={{
-                                border: '0.5px solid  #1D1F22',
+                                display: 'flex',
+                                alignItems: 'center',
                                 textAlign: 'center',
-                                padding: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                marginBottom: 5,
-                                background: 'var(--green)',
-                                color: '#fff',
+                                marginBottom: 10,
                               }}
+                              key={c.id}
                             >
-                              {' '}
-                              {attribute.value}
-                            </button>
-                          </div>
-                        )}
+                              <button
+                                style={{
+                                  textAlign: 'center',
+                                  padding: 3,
+                                  cursor: 'pointer',
+                                  marginRight: 7,
+                                  marginTop: 10,
+                                  background: `${
+                                    i === item.capacityIndex
+                                      ? ' var(--green)'
+                                      : ''
+                                  }`,
+                                  color: `${
+                                    i === item.capacityIndex ? '#fff' : ''
+                                  }`,
+                                  border: `${
+                                    i === item.capacityIndex
+                                      ? '3px solid var(--green)'
+                                      : '1px solid #1D1F22'
+                                  }`,
+                                }}
+                              >
+                                {c.value}
+                              </button>
+                            </div>
+                          ))}
 
-                        {attribute.name === 'With USB 3 ports' && (
-                          <div>
-                            <button
+                        {attribute.name === 'With USB 3 ports' &&
+                          attribute.items.map((u, Uindex) => (
+                            <div
                               style={{
-                                border: '0.5px solid  #1D1F22',
+                                display: 'flex',
+                                alignItems: 'center',
                                 textAlign: 'center',
-                                padding: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                marginBottom: 5,
-                                background: 'var(--green)',
-                                color: '#fff',
+                                marginBottom: 10,
                               }}
+                              key={u.id}
                             >
-                              {' '}
-                              {attribute.value}
-                            </button>
-                          </div>
-                        )}
+                              <button
+                                style={{
+                                  padding: 3,
+                                  textAlign: 'center',
+                                  cursor: 'pointer',
+                                  marginRight: 7,
+                                  marginTop: 10,
+                                  background: `${
+                                    Uindex === item.usbIndex
+                                      ? ' var(--green)'
+                                      : ''
+                                  }`,
+                                  color: `${
+                                    Uindex === item.usbIndex ? '#fff' : ''
+                                  }`,
+                                  border: `${
+                                    Uindex === item.usbIndex
+                                      ? '3px solid var(--green)'
+                                      : '1px solid #1D1F22'
+                                  }`,
+                                }}
+                              >
+                                {u.value}
+                              </button>
+                            </div>
+                          ))}
 
-                        {attribute.name === 'Touch ID in keyboard' && (
-                          <div>
-                            <button
+                        {attribute.name === 'Touch ID in keyboard' &&
+                          attribute.items.map((t, Tindex) => (
+                            <div
                               style={{
-                                border: '0.5px solid  #1D1F22',
+                                display: 'flex',
+                                alignItems: 'center',
                                 textAlign: 'center',
-                                padding: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                marginBottom: 5,
-                                background: 'var(--green)',
-                                color: '#fff',
+                                marginBottom: 10,
                               }}
+                              key={t.id}
                             >
-                              {attribute.value}
-                            </button>
-                          </div>
-                        )}
+                              <button
+                                style={{
+                                  textAlign: 'center',
+                                  padding: 3,
+                                  cursor: 'pointer',
+                                  marginRight: 7,
+                                  marginTop: 10,
+                                  background: `${
+                                    Tindex === item.touchIndex
+                                      ? ' var(--green)'
+                                      : ''
+                                  }`,
+                                  color: `${
+                                    Tindex === item.touchIndex ? '#fff' : ''
+                                  }`,
+                                  border: `${
+                                    Tindex === item.touchIndex
+                                      ? '3px solid var(--green)'
+                                      : '1px solid #1D1F22'
+                                  }`,
+                                }}
+                              >
+                                {t.value}
+                              </button>
+                            </div>
+                          ))}
                       </div>
                     </div>
                   </div>

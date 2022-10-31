@@ -60,6 +60,11 @@ class Card extends Component {
                 price,
                 img,
                 attributes,
+                colorIndex,
+                sizeIndex,
+                capacityIndex,
+                usbIndex,
+                touchIndex,
               })
             }
           >

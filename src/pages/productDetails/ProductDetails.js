@@ -54,7 +54,7 @@ class ProductDetails extends Component {
     const colorIndex = this.props.ReduxStore.switcher.colorIndex;
 
     const sizeIndex = this.props.ReduxStore.switcher.sizeIndex;
-    const capcityIndex = this.props.ReduxStore.switcher.capacityIndex;
+    const capacityIndex = this.props.ReduxStore.switcher.capacityIndex;
     const usbIndex = this.props.ReduxStore.switcher.usbIndex;
     const touchIndex = this.props.ReduxStore.switcher.touchIndex;
     const CurrencyIndex = this.props.ReduxStore.switcher.currencyIndex;
@@ -77,7 +77,7 @@ class ProductDetails extends Component {
             : item.name === 'Size'
             ? item?.items[sizeIndex].value
             : item.name === 'Capacity'
-            ? item?.items[capcityIndex].value
+            ? item?.items[capacityIndex].value
             : item.name === 'With USB 3 ports'
             ? item?.items[usbIndex].value
             : item.name === 'Touch ID in keyboard'
@@ -249,11 +249,11 @@ class ProductDetails extends Component {
                                 marginRight: 7,
                                 marginTop: 10,
                                 background: `${
-                                  i === capcityIndex ? ' var(--green)' : ''
+                                  i === capacityIndex ? ' var(--green)' : ''
                                 }`,
-                                color: `${i === capcityIndex ? '#fff' : ''}`,
+                                color: `${i === capacityIndex ? '#fff' : ''}`,
                                 border: `${
-                                  i === capcityIndex
+                                  i === capacityIndex
                                     ? '3px solid var(--green)'
                                     : '1px solid #1D1F22'
                                 }`,
@@ -368,6 +368,11 @@ class ProductDetails extends Component {
                       price,
                       img,
                       attributes,
+                      colorIndex,
+                      sizeIndex,
+                      capacityIndex,
+                      usbIndex,
+                      touchIndex,
                     })
                   }
                 >

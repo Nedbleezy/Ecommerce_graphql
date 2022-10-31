@@ -82,7 +82,7 @@ class NavBar extends Component {
       this.props.ReduxStore?.products?.Currencies[
         this.props.ReduxStore?.switcher?.currencyIndex
       ]?.symbol;
-
+    console.log(this.props.ReduxStore?.cart?.CartItems);
     return (
       <header className={styles.header}>
         <nav className={styles.nav}>
@@ -281,7 +281,11 @@ class NavBar extends Component {
                                             <div key={u.id}>
                                               <button
                                                 style={{
-                                                  border: '1px solid #1D1F22',
+                                                  border: `${
+                                                    c === item.colorIndex
+                                                      ? '3px solid var(--green)'
+                                                      : '1px solid #1D1F22'
+                                                  }`,
                                                   textAlign: 'center',
                                                   paddingTop: 3,
                                                   cursor: 'pointer',
@@ -323,17 +327,31 @@ class NavBar extends Component {
                                                   cursor: 'pointer',
                                                   marginRight: 7,
                                                   marginTop: 10,
-                                                  border: '1px solid #1D1F22',
+                                                  background: `${
+                                                    index === item.sizeIndex
+                                                      ? ' var(--green)'
+                                                      : ''
+                                                  }`,
+                                                  color: `${
+                                                    index === item.sizeIndex
+                                                      ? '#fff'
+                                                      : ''
+                                                  }`,
+                                                  border: `${
+                                                    index === item.sizeIndex
+                                                      ? '3px solid var(--green)'
+                                                      : '1px solid #1D1F22'
+                                                  }`,
                                                   width: `${
                                                     attribute.name === 'Size' ||
                                                     attribute.name === 'Color'
-                                                      ? '20px'
+                                                      ? '30px'
                                                       : ''
                                                   }`,
                                                   height: `${
                                                     attribute.name === 'Size' ||
                                                     attribute.name === 'Color'
-                                                      ? '20px'
+                                                      ? '30px'
                                                       : ''
                                                   }`,
                                                 }}
@@ -361,7 +379,21 @@ class NavBar extends Component {
                                                   cursor: 'pointer',
                                                   marginRight: 7,
                                                   marginTop: 10,
-                                                  border: '1px solid #1D1F22',
+                                                  background: `${
+                                                    i === item.capacityIndex
+                                                      ? ' var(--green)'
+                                                      : ''
+                                                  }`,
+                                                  color: `${
+                                                    i === item.capacityIndex
+                                                      ? '#fff'
+                                                      : ''
+                                                  }`,
+                                                  border: `${
+                                                    i === item.capacityIndex
+                                                      ? '3px solid var(--green)'
+                                                      : '1px solid #1D1F22'
+                                                  }`,
                                                 }}
                                               >
                                                 {c.value}
@@ -388,7 +420,21 @@ class NavBar extends Component {
                                                   cursor: 'pointer',
                                                   marginRight: 7,
                                                   marginTop: 10,
-                                                  border: '1px solid #1D1F22',
+                                                  background: `${
+                                                    Uindex === item.usbIndex
+                                                      ? ' var(--green)'
+                                                      : ''
+                                                  }`,
+                                                  color: `${
+                                                    Uindex === item.usbIndex
+                                                      ? '#fff'
+                                                      : ''
+                                                  }`,
+                                                  border: `${
+                                                    Uindex === item.usbIndex
+                                                      ? '3px solid var(--green)'
+                                                      : '1px solid #1D1F22'
+                                                  }`,
                                                 }}
                                               >
                                                 {u.value}
@@ -415,7 +461,21 @@ class NavBar extends Component {
                                                   cursor: 'pointer',
                                                   marginRight: 7,
                                                   marginTop: 10,
-                                                  border: '1px solid #1D1F22',
+                                                  background: `${
+                                                    Tindex === item.touchIndex
+                                                      ? ' var(--green)'
+                                                      : ''
+                                                  }`,
+                                                  color: `${
+                                                    Tindex === item.touchIndex
+                                                      ? '#fff'
+                                                      : ''
+                                                  }`,
+                                                  border: `${
+                                                    Tindex === item.touchIndex
+                                                      ? '3px solid var(--green)'
+                                                      : '1px solid #1D1F22'
+                                                  }`,
                                                 }}
                                               >
                                                 {t.value}
