@@ -82,7 +82,7 @@ class NavBar extends Component {
       this.props.ReduxStore?.products?.Currencies[
         this.props.ReduxStore?.switcher?.currencyIndex
       ]?.symbol;
-    console.log(this.props.ReduxStore?.cart?.CartItems);
+
     return (
       <header className={styles.header}>
         <nav className={styles.nav}>
@@ -623,18 +623,20 @@ class NavBar extends Component {
                           </Link>
                         </div>
                         <div>
-                          <button
-                            style={{
-                              padding: 10,
-                              border: 'none',
-                              background: '#5ece7b',
-                              color: '#fff',
-                              cursor: 'pointer',
-                              fontWeight: 600,
-                            }}
-                          >
-                            CHECK OUT
-                          </button>
+                          <Link to='/checkout'>
+                            <button
+                              style={{
+                                padding: 10,
+                                border: 'none',
+                                background: '#5ece7b',
+                                color: '#fff',
+                                cursor: 'pointer',
+                                fontWeight: 600,
+                              }}
+                            >
+                              CHECK OUT
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>

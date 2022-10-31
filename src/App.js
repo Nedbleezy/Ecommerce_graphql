@@ -7,6 +7,7 @@ import ClotheProducts from './pages/clotheproducts/ClotheProducts';
 import TechProducts from './pages/techproducts/TechProducts';
 import NavBar from './components/navbar/NavBar';
 import ProductDetails from './pages/productDetails/ProductDetails';
+import CheckoutPage from './pages/checkout/CheckoutPage';
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route index element={<AllProducts />} />
             <Route path='tech' element={<TechProducts />} />
             <Route path='all' element={<AllProducts />} />
+            <Route path='checkout' element={<CheckoutPage />} />
             <Route path='product/:id' element={<ProductDetails />} />
             <Route path='clothes' element={<ClotheProducts />} />
             <Route path='cart' element={<Cart />} />

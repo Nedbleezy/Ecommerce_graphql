@@ -6,7 +6,6 @@ import styles from './cartStyles.module.css';
 
 class Cart extends Component {
   render() {
-    console.log(this.props.ReduxStore.cart.CartItems);
     return (
       <div style={{ paddingBottom: '2rem' }}>
         <h2 className={styles.cartHeading}>CART</h2>
@@ -323,38 +322,39 @@ class Cart extends Component {
                       />
                     ))}
                   </div>
-
-                  <div
-                    style={{
-                      position: 'absolute',
-                      bottom: 10,
-                      right: 10,
-                    }}
-                  >
-                    <button
-                      onClick={() => console.log(item.id)}
+                  {item.qty > 1 && (
+                    <div
                       style={{
-                        marginRight: '8px',
-                        background: 'black',
-                        color: '#fff',
-                        padding: '0 5px',
-                        cursor: 'pointer',
+                        position: 'absolute',
+                        bottom: 10,
+                        right: 10,
                       }}
                     >
-                      &lt;
-                    </button>
-                    <button
-                      onClick={() => console.log(item.id)}
-                      style={{
-                        background: 'black',
-                        color: '#fff',
-                        padding: '0 5px',
-                        cursor: 'pointer',
-                      }}
-                    >
-                      &gt;
-                    </button>
-                  </div>
+                      <button
+                        onClick={() => console.log(item.id)}
+                        style={{
+                          marginRight: '8px',
+                          background: 'black',
+                          color: '#fff',
+                          padding: '0 5px',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        &lt;
+                      </button>
+                      <button
+                        onClick={() => console.log(item.id)}
+                        style={{
+                          background: 'black',
+                          color: '#fff',
+                          padding: '0 5px',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        &gt;
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -380,7 +380,18 @@ class Cart extends Component {
               }}
             >
               <p style={{ width: '90px', fontSize: '18px' }}>Tax 21%</p>
-              <p style={{ fontWeight: 'bold' }}>$50.00</p>
+              <p style={{ fontWeight: 'bold' }}>
+                {
+                  this.props.ReduxStore?.cart?.CartItems[0]?.price?.split(
+                    ' '
+                  )[0]
+                }{' '}
+                {this.props.ReduxStore?.cart?.CartItems.reduce(
+                  (acc, item) =>
+                    acc + item.price.split(' ')[1] * item.qty * 0.21,
+                  0
+                ).toFixed(2)}
+              </p>
             </div>
             <div
               style={{
@@ -450,7 +461,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (data) => dispatch(),
     incrementQty: (i) => dispatch(incrementQty(i)),
     decrementQty: (i) => dispatch(decrementQty(i)),
   };
