@@ -12,6 +12,9 @@ class TechProducts extends Component {
 
   render() {
     const data = this.props?.ReduxStore.products.TechCategory;
+    const { loading, error } = this.props?.ReduxStore.products;
+    loading && <h5>Loading...</h5>;
+    error && <h5> {error}</h5>;
     return (
       <div className={styles.container}>
         {data?.map((item) => (
@@ -40,7 +43,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (data) => dispatch(),
     getTech: (data) => dispatch(getproductTech(data)),
   };
 };

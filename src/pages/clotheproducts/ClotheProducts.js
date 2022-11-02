@@ -13,6 +13,9 @@ class ClotheProducts extends Component {
   }
   render() {
     const data = this.props?.ReduxStore.products.ClothesCategory;
+    const { loading, error } = this.props?.ReduxStore.products;
+    loading && <h5>Loading...</h5>;
+    error && <h5> {error}</h5>;
 
     return (
       <div className={styles.container}>
@@ -42,7 +45,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (data) => dispatch(),
     getclothes: (data) => dispatch(getproductClothes(data)),
   };
 };

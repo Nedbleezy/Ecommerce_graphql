@@ -171,9 +171,9 @@
   z-index: 30;
 }
 
-/* .cardright {
-  border: 4px dotted #f0f0f0;
-} */
+.cardright {
+  width: 50%;
+}
 .cardleft {
   display: flex;
   flex-direction: column;

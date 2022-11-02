@@ -329,19 +329,15 @@ class NavBar extends Component {
                                                   marginTop: 10,
                                                   background: `${
                                                     index === item.sizeIndex
-                                                      ? ' var(--green)'
-                                                      : ''
+                                                      ? 'black'
+                                                      : '#fff'
                                                   }`,
                                                   color: `${
                                                     index === item.sizeIndex
                                                       ? '#fff'
                                                       : ''
                                                   }`,
-                                                  border: `${
-                                                    index === item.sizeIndex
-                                                      ? '3px solid var(--green)'
-                                                      : '1px solid #1D1F22'
-                                                  }`,
+                                                  border: '1px solid #1D1F22',
                                                   width: `${
                                                     attribute.name === 'Size' ||
                                                     attribute.name === 'Color'
@@ -381,19 +377,15 @@ class NavBar extends Component {
                                                   marginTop: 10,
                                                   background: `${
                                                     i === item.capacityIndex
-                                                      ? ' var(--green)'
-                                                      : ''
+                                                      ? 'black'
+                                                      : '#fff'
                                                   }`,
                                                   color: `${
                                                     i === item.capacityIndex
                                                       ? '#fff'
                                                       : ''
                                                   }`,
-                                                  border: `${
-                                                    i === item.capacityIndex
-                                                      ? '3px solid var(--green)'
-                                                      : '1px solid #1D1F22'
-                                                  }`,
+                                                  border: '1px solid #1D1F22',
                                                 }}
                                               >
                                                 {c.value}
@@ -422,19 +414,15 @@ class NavBar extends Component {
                                                   marginTop: 10,
                                                   background: `${
                                                     Uindex === item.usbIndex
-                                                      ? ' var(--green)'
-                                                      : ''
+                                                      ? 'black'
+                                                      : '#fff'
                                                   }`,
                                                   color: `${
                                                     Uindex === item.usbIndex
                                                       ? '#fff'
                                                       : ''
                                                   }`,
-                                                  border: `${
-                                                    Uindex === item.usbIndex
-                                                      ? '3px solid var(--green)'
-                                                      : '1px solid #1D1F22'
-                                                  }`,
+                                                  border: '1px solid #1D1F22',
                                                 }}
                                               >
                                                 {u.value}
@@ -463,19 +451,15 @@ class NavBar extends Component {
                                                   marginTop: 10,
                                                   background: `${
                                                     Tindex === item.touchIndex
-                                                      ? ' var(--green)'
-                                                      : ''
+                                                      ? 'black'
+                                                      : '#fff'
                                                   }`,
                                                   color: `${
                                                     Tindex === item.touchIndex
                                                       ? '#fff'
                                                       : ''
                                                   }`,
-                                                  border: `${
-                                                    Tindex === item.touchIndex
-                                                      ? '3px solid var(--green)'
-                                                      : '1px solid #1D1F22'
-                                                  }`,
+                                                  border: '1px solid #1D1F22',
                                                 }}
                                               >
                                                 {t.value}
@@ -490,9 +474,8 @@ class NavBar extends Component {
                             <div className={styles.cardright}>
                               <div
                                 style={{
-                                  // marginRight: 2,
                                   textAlign: 'center',
-                                  // width: '50%',
+
                                   display: 'flex',
                                 }}
                               >
@@ -623,7 +606,10 @@ class NavBar extends Component {
                           </Link>
                         </div>
                         <div>
-                          <Link to='/checkout'>
+                          <Link
+                            to='/checkout'
+                            onClick={this.handleMouseOver.bind(this)}
+                          >
                             <button
                               style={{
                                 padding: 10,

@@ -57,15 +57,6 @@
 }
 .outofStock {
   width: 386px;
-  /* 
-  height: 444px;
-  position: absolute;
-  top: 0;
-
-  left: 0;
-  display: grid;
-  place-items: center;
-  text-transform: uppercase; */
 }
 
 .outofStock::before {

@@ -104,18 +104,12 @@ class Cart extends Component {
                                   marginRight: 7,
                                   marginTop: 10,
                                   background: `${
-                                    index === item.sizeIndex
-                                      ? ' var(--green)'
-                                      : ''
+                                    index === item.sizeIndex ? 'black' : '#fff'
                                   }`,
                                   color: `${
                                     index === item.sizeIndex ? '#fff' : ''
                                   }`,
-                                  border: `${
-                                    index === item.sizeIndex
-                                      ? '3px solid var(--green)'
-                                      : '1px solid #1D1F22'
-                                  }`,
+                                  border: '1px solid #1D1F22',
                                   width: `${
                                     attribute.name === 'Size' ||
                                     attribute.name === 'Color'
@@ -154,18 +148,12 @@ class Cart extends Component {
                                   marginRight: 7,
                                   marginTop: 10,
                                   background: `${
-                                    i === item.capacityIndex
-                                      ? ' var(--green)'
-                                      : ''
+                                    i === item.capacityIndex ? 'black' : '#fff'
                                   }`,
                                   color: `${
                                     i === item.capacityIndex ? '#fff' : ''
                                   }`,
-                                  border: `${
-                                    i === item.capacityIndex
-                                      ? '3px solid var(--green)'
-                                      : '1px solid #1D1F22'
-                                  }`,
+                                  border: '1px solid #1D1F22',
                                 }}
                               >
                                 {c.value}
@@ -192,18 +180,12 @@ class Cart extends Component {
                                   marginRight: 7,
                                   marginTop: 10,
                                   background: `${
-                                    Uindex === item.usbIndex
-                                      ? ' var(--green)'
-                                      : ''
+                                    Uindex === item.usbIndex ? 'black' : '#fff'
                                   }`,
                                   color: `${
                                     Uindex === item.usbIndex ? '#fff' : ''
                                   }`,
-                                  border: `${
-                                    Uindex === item.usbIndex
-                                      ? '3px solid var(--green)'
-                                      : '1px solid #1D1F22'
-                                  }`,
+                                  border: '1px solid #1D1F22',
                                 }}
                               >
                                 {u.value}
@@ -231,17 +213,13 @@ class Cart extends Component {
                                   marginTop: 10,
                                   background: `${
                                     Tindex === item.touchIndex
-                                      ? ' var(--green)'
-                                      : ''
+                                      ? 'black'
+                                      : '#fff'
                                   }`,
                                   color: `${
                                     Tindex === item.touchIndex ? '#fff' : ''
                                   }`,
-                                  border: `${
-                                    Tindex === item.touchIndex
-                                      ? '3px solid var(--green)'
-                                      : '1px solid #1D1F22'
-                                  }`,
+                                  border: '1px solid #1D1F22',
                                 }}
                               >
                                 {t.value}
@@ -312,15 +290,19 @@ class Cart extends Component {
                   </div>
                 </div>
                 <div style={{ position: 'relative', marginLeft: '20px' }}>
-                  <div className={styles.carousel}>
-                    {[...Array(item.qty).keys()].map((x, index) => (
-                      <img
-                        key={index}
-                        src={item.img}
-                        alt='pi'
-                        style={{ width: '100%', objectFit: 'cover' }}
-                      />
-                    ))}
+                  <div>
+                    <div className={styles.carousel}>
+                      {[...Array(item.qty).keys()].map((x, index) => {
+                        return (
+                          <img
+                            key={x}
+                            src={item.img}
+                            alt='pi'
+                            style={{ width: '100%', objectFit: 'cover' }}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                   {item.qty > 1 && (
                     <div
@@ -331,7 +313,6 @@ class Cart extends Component {
                       }}
                     >
                       <button
-                        onClick={() => console.log(item.id)}
                         style={{
                           marginRight: '8px',
                           background: 'black',
@@ -343,7 +324,6 @@ class Cart extends Component {
                         &lt;
                       </button>
                       <button
-                        onClick={() => console.log(item.id)}
                         style={{
                           background: 'black',
                           color: '#fff',

@@ -11,6 +11,9 @@ class AllProducts extends Component {
   }
   render() {
     const data = this.props.ReduxStore.products.AllProductsCategory;
+    const { loading, error } = this.props?.ReduxStore.products;
+    loading && <h5>Loading...</h5>;
+    error && <h5> {error}</h5>;
 
     return (
       <div className={styles.container}>
