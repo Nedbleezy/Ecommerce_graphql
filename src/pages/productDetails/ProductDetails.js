@@ -200,15 +200,10 @@ class ProductDetails extends Component {
                                 marginRight: 7,
                                 marginTop: 10,
                                 background: `${
-                                  index === sizeIndex ? ' var(--green)' : ''
+                                  index === sizeIndex ? 'black' : '#fff'
                                 }`,
                                 color: `${index === sizeIndex ? '#fff' : ''}`,
-
-                                border: `${
-                                  index === sizeIndex
-                                    ? '3px solid var(--green)'
-                                    : '1px solid #1D1F22'
-                                }`,
+                                border: '1px solid #1D1F22',
                                 width: `${
                                   attribute.name === 'Size' ||
                                   attribute.name === 'Color'
@@ -249,14 +244,10 @@ class ProductDetails extends Component {
                                 marginRight: 7,
                                 marginTop: 10,
                                 background: `${
-                                  i === capacityIndex ? ' var(--green)' : ''
+                                  i === capacityIndex ? 'black' : '#fff'
                                 }`,
                                 color: `${i === capacityIndex ? '#fff' : ''}`,
-                                border: `${
-                                  i === capacityIndex
-                                    ? '3px solid var(--green)'
-                                    : '1px solid #1D1F22'
-                                }`,
+                                border: '1px solid #1D1F22',
                               }}
                             >
                               {c.value}
@@ -285,14 +276,10 @@ class ProductDetails extends Component {
                                 marginRight: 7,
                                 marginTop: 10,
                                 background: `${
-                                  Uindex === usbIndex ? ' var(--green)' : ''
+                                  Uindex === usbIndex ? 'black' : '#fff'
                                 }`,
                                 color: `${Uindex === usbIndex ? '#fff' : ''}`,
-                                border: `${
-                                  Uindex === usbIndex
-                                    ? '3px solid var(--green)'
-                                    : '1px solid #1D1F22'
-                                }`,
+                                border: '1px solid #1D1F22',
                               }}
                             >
                               {u.value}
@@ -321,14 +308,10 @@ class ProductDetails extends Component {
                                 marginRight: 7,
                                 marginTop: 10,
                                 background: `${
-                                  Tindex === touchIndex ? ' var(--green)' : ''
+                                  Tindex === touchIndex ? 'black' : '#fff'
                                 }`,
                                 color: `${Tindex === touchIndex ? '#fff' : ''}`,
-                                border: `${
-                                  Tindex === touchIndex
-                                    ? '3px solid var(--green)'
-                                    : '1px solid #1D1F22'
-                                }`,
+                                border: '1px solid #1D1F22',
                               }}
                             >
                               {t.value}

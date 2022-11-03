@@ -292,13 +292,15 @@ class Cart extends Component {
                 <div style={{ position: 'relative', marginLeft: '20px' }}>
                   <div>
                     <div className={styles.carousel}>
-                      {[...Array(item.qty).keys()].map((x, index) => {
+                      {[...Array(item.qty).keys()].map((x, touchIndex) => {
                         return (
                           <img
+                            onClick={() => console.log(index)}
                             key={x}
                             src={item.img}
                             alt='pi'
                             style={{ width: '100%', objectFit: 'cover' }}
+                            id='img'
                           />
                         );
                       })}
@@ -313,6 +315,7 @@ class Cart extends Component {
                       }}
                     >
                       <button
+                        onClick={() => console.log('btn-left')}
                         style={{
                           marginRight: '8px',
                           background: 'black',
@@ -324,6 +327,7 @@ class Cart extends Component {
                         &lt;
                       </button>
                       <button
+                        onClick={() => console.log('btn-right')}
                         style={{
                           background: 'black',
                           color: '#fff',
