@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import parse from 'html-react-parser';
 import { connect } from 'react-redux';
 import { AddToCART } from '../../features/cart/cartSlice';
 import { getproductDetails } from '../../features/productDetails/productDetails';
@@ -10,6 +11,7 @@ import {
   changeUsb,
 } from '../../features/switcher/switcherSlice';
 import WithRouter from '../../utils/WithRouter';
+import styles from './productDetails.module.css';
 
 class ProductDetails extends Component {
   constructor(props) {
@@ -65,158 +67,75 @@ class ProductDetails extends Component {
     const img = this.state.img;
 
     const label = this.state.prices[CurrencyIndex]?.currency?.symbol;
-
     let price = label + ' ' + this.state.prices[CurrencyIndex]?.amount;
-
-    const selectedAttr = this.state.attributes?.map((item) => {
-      return {
-        name: item.name,
-        value:
-          item.name === 'Color'
-            ? item?.items[colorIndex].value
-            : item.name === 'Size'
-            ? item?.items[sizeIndex].value
-            : item.name === 'Capacity'
-            ? item?.items[capacityIndex].value
-            : item.name === 'With USB 3 ports'
-            ? item?.items[usbIndex].value
-            : item.name === 'Touch ID in keyboard'
-            ? item?.items[touchIndex].value
-            : '',
-      };
-    });
 
     return (
       <>
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         {details && (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              paddingBottom: 5,
-              gap: 8,
-              width: '90%',
-              marginTop: '2rem',
-              marginRight: 'auto',
-              marginLeft: 'auto',
-            }}
-          >
-            <div style={{ flex: 1, padding: 3 }}>
+          <div className={styles.container}>
+            <div className={styles.flexLeft}>
               {this.state.gallery?.length > 1
                 ? this.state.gallery?.map((img, i) => (
-                    <div className='thumbnail' key={i}>
+                    <div className={styles.thumbnail} key={i}>
                       <img
                         onClick={this.ChangeImg.bind(this, i)}
                         src={img}
                         alt='pi'
-                        style={{
-                          width: '100%',
-                          height: '50px',
-                          objectFit: 'contain',
-                        }}
                       />
                     </div>
                   ))
                 : ''}
             </div>
 
-            <div style={{ flex: 4, padding: 3 }}>
+            <div className={styles.flexCenter}>
               <img
                 src={this.state.gallery[this.state.Imgindex]}
                 alt='img'
-                style={{ width: '80%', objectFit: 'cover' }}
+                className={styles.bigImg}
               />
             </div>
-            <div style={{ flex: 3, paddingLeft: 4 }}>
-              <div className='brand'>{this.state.brand}</div>
-              <div style={{ marginBottom: 10 }}>{this.state.name}</div>
+            <div className={styles.flexRight}>
+              <h2 className={styles.brand}>{this.state.brand}</h2>
+              <div className={styles.name}>{this.state.name}</div>
               {this.state.attributes?.length !== 0 &&
                 this.state.attributes.map((attribute, i) => (
                   <div key={i}>
-                    <h4>{attribute.name}</h4>
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        marginRight: 5,
-                      }}
-                    >
+                    <h4 className={styles.name}>{attribute.name}</h4>
+                    <div className={styles.touchCover}>
                       {attribute.name === 'Color' &&
                         attribute.items.map((u, c) => (
                           <div key={u.id}>
                             <button
+                              disabled={
+                                !this.props.ReduxStore.productDetails
+                                  .productDetails.inStock
+                              }
+                              style={{ background: `${u.value}` }}
                               onClick={() => {
                                 this.props.changeColor(c);
                               }}
-                              style={{
-                                border: `${
-                                  c === colorIndex
-                                    ? '3px solid var(--green)'
-                                    : '1px solid #1D1F22'
-                                }`,
-                                textAlign: 'center',
-                                paddingTop: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                marginBottom: 5,
-                                background: `${u.value}`,
-                                width: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '30px'
-                                    : ''
-                                }`,
-                                height: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '30px'
-                                    : ''
-                                }`,
-                              }}
+                              className={`${styles.SizeColorBtn} ${
+                                c === colorIndex ? styles.ColorXtra : ''
+                              }`}
                             ></button>
                           </div>
                         ))}
                       {attribute.name === 'Size' &&
                         attribute.items.map((s, index) => (
-                          <div
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              textAlign: 'center',
-                              marginBottom: 10,
-                            }}
-                            key={s.id}
-                          >
+                          <div className={styles.touchCover} key={s.id}>
                             <button
+                              disabled={
+                                !this.props.ReduxStore.productDetails
+                                  .productDetails.inStock
+                              }
                               onClick={() => {
                                 this.props.changeSize(index);
                               }}
-                              style={{
-                                padding: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                background: `${
-                                  index === sizeIndex ? 'black' : '#fff'
-                                }`,
-                                color: `${index === sizeIndex ? '#fff' : ''}`,
-                                border: '1px solid #1D1F22',
-                                width: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '30px'
-                                    : ''
-                                }`,
-                                height: `${
-                                  attribute.name === 'Size' ||
-                                  attribute.name === 'Color'
-                                    ? '30px'
-                                    : ''
-                                }`,
-                              }}
+                              className={`${styles.SizeColorBtn} ${
+                                index === sizeIndex ? styles.SizeColorXtra : ''
+                              }`}
                             >
                               {s.value}
                             </button>
@@ -225,30 +144,18 @@ class ProductDetails extends Component {
 
                       {attribute.name === 'Capacity' &&
                         attribute.items.map((c, i) => (
-                          <div
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              textAlign: 'center',
-                              marginBottom: 10,
-                            }}
-                            key={c.id}
-                          >
+                          <div className={styles.touchCover} key={c.id}>
                             <button
+                              disabled={
+                                !this.props.ReduxStore.productDetails
+                                  .productDetails.inStock
+                              }
                               onClick={() => {
                                 this.props.changeCapcity(i);
                               }}
-                              style={{
-                                padding: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                background: `${
-                                  i === capacityIndex ? 'black' : '#fff'
-                                }`,
-                                color: `${i === capacityIndex ? '#fff' : ''}`,
-                                border: '1px solid #1D1F22',
-                              }}
+                              className={`${styles.touchBtn} ${
+                                i === capacityIndex ? styles.touchXtra : ''
+                              }`}
                             >
                               {c.value}
                             </button>
@@ -257,30 +164,18 @@ class ProductDetails extends Component {
 
                       {attribute.name === 'With USB 3 ports' &&
                         attribute.items.map((u, Uindex) => (
-                          <div
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              textAlign: 'center',
-                              marginBottom: 10,
-                            }}
-                            key={u.id}
-                          >
+                          <div className={styles.touchCover} key={u.id}>
                             <button
+                              disabled={
+                                !this.props.ReduxStore.productDetails
+                                  .productDetails.inStock
+                              }
                               onClick={() => {
                                 this.props.changeUsb(Uindex);
                               }}
-                              style={{
-                                padding: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                background: `${
-                                  Uindex === usbIndex ? 'black' : '#fff'
-                                }`,
-                                color: `${Uindex === usbIndex ? '#fff' : ''}`,
-                                border: '1px solid #1D1F22',
-                              }}
+                              className={`${styles.touchBtn} ${
+                                Uindex === usbIndex ? styles.touchXtra : ''
+                              }`}
                             >
                               {u.value}
                             </button>
@@ -289,30 +184,18 @@ class ProductDetails extends Component {
 
                       {attribute.name === 'Touch ID in keyboard' &&
                         attribute.items.map((t, Tindex) => (
-                          <div
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              textAlign: 'center',
-                              marginBottom: 10,
-                            }}
-                            key={t.id}
-                          >
+                          <div className={styles.touchCover} key={t.id}>
                             <button
+                              disabled={
+                                !this.props.ReduxStore.productDetails
+                                  .productDetails.inStock
+                              }
                               onClick={() => {
                                 this.props.changeTouch(Tindex);
                               }}
-                              style={{
-                                padding: 3,
-                                cursor: 'pointer',
-                                marginRight: 7,
-                                marginTop: 10,
-                                background: `${
-                                  Tindex === touchIndex ? 'black' : '#fff'
-                                }`,
-                                color: `${Tindex === touchIndex ? '#fff' : ''}`,
-                                border: '1px solid #1D1F22',
-                              }}
+                              className={`${styles.touchBtn} ${
+                                Tindex === touchIndex ? styles.touchXtra : ''
+                              }`}
                             >
                               {t.value}
                             </button>
@@ -322,52 +205,54 @@ class ProductDetails extends Component {
                   </div>
                 ))}
 
-              <div style={{ marginBottom: 5 }}>PRICE:</div>
-              <div style={{ marginBottom: 5 }}>
-                <h5 style={{ color: 'var(--dark)', fontSize: '.7rem' }}>
+              <h2 className={styles.price}>PRICE:</h2>
+              <div className={styles.symbol}>
+                <h3>
                   <span>
                     {this.state.prices[CurrencyIndex]?.currency?.symbol}
                   </span>{' '}
                   {this.state.prices[CurrencyIndex]?.amount}
-                </h5>
+                </h3>
               </div>
-              <div style={{ fontWeight: 600 }}></div>
-              <div>
-                <button
-                  style={{
-                    border: 'none',
-                    padding: '.7rem',
-                    color: '#fff',
-                    background: 'var(--green)',
-                    cursor: 'pointer',
-                    textAlign: 'center',
-                  }}
-                  onClick={() =>
-                    this.props.addToCart({
-                      id,
-                      name,
-                      brand,
-                      selectedAttr,
-                      price,
-                      img,
-                      attributes,
+
+              <button
+                disabled={
+                  !this.props.ReduxStore.productDetails.productDetails.inStock
+                }
+                className={styles.addToCartBtn}
+                onClick={() => {
+                  this.props.addToCart({
+                    id,
+                    name,
+                    brand,
+                    price,
+                    img,
+                    attributes,
+                    colorIndex,
+                    sizeIndex,
+                    capacityIndex,
+                    usbIndex,
+                    touchIndex,
+                    comp: {
                       colorIndex,
                       sizeIndex,
                       capacityIndex,
                       usbIndex,
                       touchIndex,
-                    })
-                  }
-                >
-                  ADD TO CART
-                </button>
-              </div>
-              <div
-                style={{ marginTop: 10 }}
-                dangerouslySetInnerHTML={{
-                  __html: `${this.props?.ReduxStore?.productDetails?.productDetails?.description}`,
+                    },
+                  });
                 }}
-              />
+              >
+                {!this.props.ReduxStore.productDetails.productDetails.inStock
+                  ? 'OUT OF STOCK'
+                  : 'ADD TO CART'}
+              </button>
+
+              <div className={styles.desc}>
+                {parse(
+                  `${this.props?.ReduxStore?.productDetails?.productDetails?.description}`
+                )}
+              </div>
             </div>
           </div>
         )}

@@ -5,6 +5,7 @@ import DetailsReducer from '../features/productDetails/productDetails';
 
 import productsReducer from '../features/products/productsSlice';
 import switchReducer from '../features/switcher/switcherSlice';
+import quickShopReducer from '../features/quickshop/quickShopSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     products: productsReducer,
     switcher: switchReducer,
     productDetails: DetailsReducer,
+    quickshopID: quickShopReducer,
   },
 });

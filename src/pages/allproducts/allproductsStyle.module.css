@@ -1,6 +1,18 @@
 .container {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  padding: 2rem 0;
+  display: grid;
+  /* column-gap: 1em; */
+  row-gap: 5em;
+  max-width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 1900px) {
+  .container {
+    display: flex;
+    gap: 6em;
+    flex-wrap: wrap;
+    max-width: 100%;
+    min-height: 100vh;
+  }
 }

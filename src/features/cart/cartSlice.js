@@ -58,23 +58,21 @@ export const cartSlice = createSlice({
     },
     addToCart: (state, action) => {
       const Newitem = action.payload;
-      const existItem = state.CartItems.find((x) => x.id === Newitem.id);
-      if (existItem && existItem.selectedAttr.length === 0) {
+      const existItem = state.CartItems.find(
+        (x) =>
+          x.id === Newitem.id &&
+          JSON.stringify(x.comp) === JSON.stringify(Newitem.comp)
+      );
+      if (
+        existItem &&
+        JSON.stringify(existItem.comp) === JSON.stringify(Newitem.comp)
+      ) {
         existItem.qty++;
       } else if (
         existItem &&
-        existItem.selectedAttr.length !== 0 &&
-        JSON.stringify(existItem.selectedAttr) !==
-          JSON.stringify(Newitem.selectedAttr)
+        JSON.stringify(existItem.comp) !== JSON.stringify(Newitem.comp)
       ) {
         state.CartItems.push({ ...Newitem, qty: 1 });
-      } else if (
-        existItem &&
-        existItem.selectedAttr.length !== 0 &&
-        JSON.stringify(existItem.selectedAttr) ===
-          JSON.stringify(Newitem.selectedAttr)
-      ) {
-        existItem.qty++;
       } else {
         state.CartItems.push({ ...Newitem, qty: 1 });
       }

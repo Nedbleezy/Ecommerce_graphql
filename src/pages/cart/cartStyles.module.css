@@ -1,23 +1,211 @@
 .cartHeading {
   padding-bottom: 2rem;
   font-weight: bold;
+  font-size: 2rem;
 }
 .cartItems {
   border-top: 1.7px solid var(--offW);
   padding: 1rem 0;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 .cardright {
-  width: 30%;
+  width: 20%;
 }
 .cardleft {
-  width: 30%;
+  width: 50%;
 }
 
+.carouselCover {
+  margin-left: 20px;
+  position: relative;
+}
 .carousel {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
   position: relative;
+  width: 100%;
+  object-fit: cover;
+}
+.carousel img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.order {
+  background: var(--green);
+  color: #fff;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-weight: bold;
+  width: 80%;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  word-spacing: 5;
+}
+.cartFooter {
+  border-top: 1.7px solid var(--offW);
+}
+.cartFooterContainer {
+  display: flex;
+  margin-top: 10px;
+}
+
+.para {
+  font-size: 24px;
+  width: 100px;
+}
+.paraBold {
+  font-weight: bold;
+  font-size: 24px;
+  padding-left: 2rem;
+}
+.cartFooter > div {
+  width: 30%;
+  margin-top: 2rem;
+}
+.gtltCover {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.lessThanBtn {
+  margin-right: 12px;
+  background: black;
+  color: #fff;
+  padding: 0 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.greaterThanBtn {
+  background: black;
+  color: #fff;
+  padding: 0 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.BtnCOVER {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 2px;
+}
+.decreBTN {
+  width: 60px;
+  height: 60px;
+  font-size: 3rem;
+  padding: 0px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid black;
+}
+.increBTN {
+  width: 60px;
+  height: 60px;
+  font-size: 3rem;
+  padding: 0px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid black;
+}
+.QtyY {
+  font-size: 22px;
+  padding: 3px;
+  font-weight: bold;
+}
+.cardrightINNER {
+  text-align: center;
+  display: flex;
+}
+.Wrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.WrapperBTN {
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  margin-right: 7px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  border: 1px solid #1d1f22;
+  background-color: #fff;
+}
+.WrapperBTNXtra {
+  background: black;
+  color: #fff;
+}
+
+.SizeTouchy {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.ColorTouchy {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.SIZECOVER {
+  border: 1px solid #1d1f22;
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  margin-right: 7px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+.SIZEXTRA {
+  background: black;
+  color: #fff;
+}
+
+.COLORCOVER {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #1d1f22;
+  text-align: center;
+  padding-top: 3px;
+  cursor: pointer;
+  margin-right: 7px;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+.COLORXTRA {
+  border: 3px solid var(--green);
+}
+.Attr {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.brandy {
+  padding-bottom: 10px;
+  font-size: 30px;
+}
+.ItemCover {
+  padding-bottom: 0.2rem;
+}
+.cartWrapper {
+  padding-bottom: 2rem;
 }

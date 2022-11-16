@@ -4,6 +4,7 @@ import { getALLproducts } from '../../features/products/productsAPI';
 import WithRouter from '../../utils/WithRouter';
 import Card from '../../components/card/Card';
 import styles from './allproductsStyle.module.css';
+import QuickAdd from '../../components/card/QuickAdd';
 
 class AllProducts extends Component {
   async componentDidMount() {
@@ -16,19 +17,22 @@ class AllProducts extends Component {
     error && <h5> {error}</h5>;
 
     return (
-      <div className={styles.container}>
-        {data.map((product) => (
-          <Card
-            name={product.name}
-            key={product.id}
-            brand={product.brand}
-            gallery={product.gallery}
-            inStock={product.inStock}
-            prices={product.prices}
-            id={product.id}
-            attributes={product.attributes}
-          />
-        ))}
+      <div>
+        <QuickAdd />
+        <div className={styles.container}>
+          {data.map((product) => (
+            <Card
+              name={product.name}
+              key={product.id}
+              brand={product.brand}
+              gallery={product.gallery}
+              inStock={product.inStock}
+              prices={product.prices}
+              id={product.id}
+              attributes={product.attributes}
+            />
+          ))}
+        </div>
       </div>
     );
   }

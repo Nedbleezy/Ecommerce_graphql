@@ -1,0 +1,16 @@
+.logo {
+  position: relative;
+  cursor: pointer;
+}
+.curve {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+.arrow {
+  position: absolute;
+  top: 12px;
+  right: 30%;
+}

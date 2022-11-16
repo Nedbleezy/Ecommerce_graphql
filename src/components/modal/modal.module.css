@@ -1,0 +1,210 @@
+.modalWrapper {
+  height: 100vh;
+  background: rgba(57, 55, 72, 0.22);
+  position: fixed;
+  top: 6.5rem;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cardBox {
+  background: #fff;
+  height: 50vh;
+  overflow-y: auto;
+  padding-bottom: 7rem;
+}
+
+.minicart {
+  background: #fff;
+  width: 400px;
+  height: 50vh;
+  margin-right: 2.5%;
+  position: relative;
+}
+.checkoutBtn {
+  padding: 10px;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.viewBtn {
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  font-weight: 600;
+  background: #fff;
+}
+.viewCheckCover {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.totalWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.footerWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+}
+
+.title {
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fff;
+  font-size: 18px;
+}
+.myItems {
+  padding: 10px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.cardBox::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.cardBox::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 6px;
+}
+.cardBox::-webkit-scrollbar-thumb {
+  background: rgb(121, 121, 121);
+}
+
+.cardItemLeft {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.LeftInnerDiv {
+  color: black;
+  padding-bottom: 0.2rem;
+  font-size: 0.8rem;
+}
+.cardItemRight {
+  width: 50%;
+}
+
+.brand {
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+.name {
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+.price {
+  padding-bottom: 10px;
+  font-size: 17px;
+}
+.colorCover {
+  display: flex;
+  align-items: center;
+  margin-right: 5;
+}
+.sizeCover {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.ColorBTN {
+  /* padding-top: 10px; */
+  cursor: pointer;
+  margin-right: 7px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border: 1px solid #1d1f22;
+  height: 28px;
+  width: 28px;
+  text-align: center;
+}
+.SizeBTN {
+  /* padding: 5px; */
+  cursor: pointer;
+  margin-right: 7px;
+  font-size: 1rem;
+  margin-top: 10px;
+  /* margin-bottom: 5px; */
+  background-color: #fff;
+  border: 1px solid #1d1f22;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+}
+.SizeXtra {
+  background-color: var(--blk);
+  color: #fff;
+}
+.ColorXtra {
+  background-color: var(--blk);
+  color: #fff;
+  border: 3px solid var(--green);
+}
+
+.SizeColorXtra {
+  background-color: var(--blk);
+  color: #fff;
+}
+.touchBtn {
+  padding: 3px;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 7px;
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #1d1f22;
+}
+.touchXtra {
+  background-color: var(--blk);
+  color: #fff;
+}
+
+.btnQty {
+  font-size: 1.7rem;
+  padding: 0 5px 5px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid black;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+}
+.btnCoverRR {
+  text-align: center;
+  display: flex;
+}
+.btnCoverR {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-right: 3px;
+}
+
+.QTY {
+  font-size: 20px;
+  padding: 5px;
+}
+.miniIMG {
+  width: 100%;
+  object-fit: cover;
+}
+.IMGW {
+  position: relative;
+}

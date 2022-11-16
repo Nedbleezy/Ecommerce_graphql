@@ -2,6 +2,7 @@
   --green: #5ece7b;
   --off: #a3a3a3;
   --offW: #eeeeee;
+  --blk: #1d1f22;
 }
 body,
 html,
@@ -9,12 +10,10 @@ html,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  /* min-width: 100vw; */
-  /* color: #eeeeee; */
 }
 
 .menu-open {
-  display: block;
+  display: block !important;
   opacity: 1;
 }
 
@@ -26,15 +25,17 @@ html,
 .select-clicked {
   border: 1px #26489a solid;
 }
+.active {
+  visibility: visible !important;
+}
 
-.thumbnail {
-  transition: all 0.5s ease;
-  margin: 20px;
+#menu {
+  /* display: block; */
+  visibility: hidden;
 }
-.thumbnail img {
-  transition: all 0.5s ease;
-}
-.thumbnail:hover img {
-  transform: scale(1.5);
-  cursor: pointer;
+/* .open {
+  visibility: visible !important;
+} */
+.quickAdd {
+  visibility: visible !important;
 }

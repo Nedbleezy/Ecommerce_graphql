@@ -1,32 +1,31 @@
-.container {
+.modalWrapper {
+  height: 100vh;
+  background: rgba(57, 55, 72, 0.22);
+  position: fixed;
+  top: 6.5rem;
+  right: 0;
+  left: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  z-index: 90;
+}
+.inner {
+  background: #fff;
+  width: 55%;
+  display: flex;
+  padding: 3rem;
   justify-content: space-between;
-  padding-bottom: 5px;
-  gap: 1;
-  width: 100%;
-  margin-top: 2rem;
+  margin-bottom: 7rem;
 }
-
-.thumbnail {
-  transition: all 0.5s ease;
-  margin: 5px;
-}
-.thumbnail img {
-  transition: all 0.5s ease;
-  width: 100%;
-  height: 250px;
-  object-fit: contain;
-}
-.thumbnail:hover img {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-.bigImg {
+.img {
   width: 100%;
   object-fit: cover;
 }
-
+.imgCovered {
+  margin-right: 1rem;
+}
 .brand {
   font-size: 2rem;
   margin-bottom: 10px;

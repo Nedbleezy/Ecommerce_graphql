@@ -1,0 +1,13 @@
+.chevron {
+  font-size: 25px;
+  transition: all 0.2s ease;
+}
+
+.icon {
+  font-size: 25px;
+  margin-right: 45px;
+}
+.optionText {
+  font-size: 18px;
+  color: #333;
+}
