@@ -4,7 +4,6 @@ import { getALLproducts } from '../../features/products/productsAPI';
 import WithRouter from '../../utils/WithRouter';
 import Card from '../../components/card/Card';
 import styles from './allproductsStyle.module.css';
-import QuickAdd from '../../components/card/QuickAdd';
 
 class AllProducts extends Component {
   async componentDidMount() {
@@ -18,7 +17,6 @@ class AllProducts extends Component {
 
     return (
       <div>
-        <QuickAdd />
         <div className={styles.container}>
           {data.map((product) => (
             <Card

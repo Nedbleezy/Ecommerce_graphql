@@ -16,6 +16,7 @@ import styles from './quick.module.css';
 class QuickAdd extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       data: null,
     };

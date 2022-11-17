@@ -11,6 +11,7 @@ class ClotheProducts extends Component {
       this.props.router.location.pathname.split('/')[1]
     );
   }
+
   render() {
     const data = this.props?.ReduxStore.products.ClothesCategory;
     const { loading, error } = this.props?.ReduxStore.products;

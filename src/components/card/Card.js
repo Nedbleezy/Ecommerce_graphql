@@ -6,9 +6,10 @@ import WithRouter from '../../utils/WithRouter';
 import Svg from './Svg';
 
 import { changeID } from '../../features/quickshop/quickShopSlice';
+import QuickAdd from './QuickAdd';
 
 class Card extends Component {
-  OpenQuickAddToCart = (data) => {
+  OpenQuickAddToCart = () => {
     const modal = document.getElementById('quickAdd');
     modal.classList.add('quickAdd');
   };
@@ -19,6 +20,7 @@ class Card extends Component {
 
     return (
       <div>
+        <QuickAdd />
         <div
           className={styles.card}
           onClick={(e) => {
