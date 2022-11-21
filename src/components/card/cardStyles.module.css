@@ -1,14 +1,14 @@
 .card {
-  padding: 20px;
-  width: 550px;
-  height: 590px;
+  padding: 16px;
+  width: 406px;
+  height: 464px;
   transition: all 0.5s ease;
   position: relative;
   cursor: pointer;
   max-width: 100%;
 }
 .productImg {
-  height: 459px;
+  height: 358px;
   cursor: pointer;
   object-fit: cover;
   object-position: center;
@@ -56,24 +56,26 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
-  font-size: 27px;
+  font-size: 20px;
+  line-height: 160%;
 }
 .price {
   padding-top: 0.5rem;
+  color: #1d1f22;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 500;
-  font-size: 30px;
-  color: #1d1f22;
+  font-size: 20px;
+  line-height: 160%;
 }
-.outofStock {
+/* .outofStock {
   width: 590px;
-}
+} */
 
 .outofStock::before {
   content: 'OUT OF STOCK ';
-  width: 550px;
-  height: 590px;
+  width: 406px;
+  height: 464px;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -83,8 +85,12 @@
   background: #fff;
   opacity: 0.5;
   color: #8d8f9a;
+
+  font-family: 'Raleway';
+  font-style: normal;
   font-weight: 400;
   font-size: 24px;
+  line-height: 160%;
 }
 .greyText {
   color: #8d8f9a;

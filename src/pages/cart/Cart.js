@@ -15,15 +15,17 @@ class Cart extends Component {
             <div className={styles.cardleft}>
               <div className={styles.ItemCover}>
                 <h3 className={styles.brandy}>{item.brand}</h3>
-                <p className={styles.brandy}>{item.name}</p>
-                <h3 className={styles.brandy}>{item.price}</h3>
+                <p className={styles.brandyy}>{item.name}</p>
+                <h3 className={styles.brandyy}>
+                  {item.price.split(' ')[0].concat(item.price.split(' ')[1])}
+                </h3>
               </div>
 
               {/* order left part */}
               {item.attributes.length > 0 &&
                 item.attributes.map((attribute, i) => (
                   <div key={i}>
-                    <h4 className={styles.Attr}>{attribute.name}</h4>
+                    <h4 className={styles.Attr}>{attribute.name}:</h4>
                     <div>
                       <div className={styles.ColorTouchy}>
                         {attribute.name === 'Color' &&
@@ -156,7 +158,7 @@ class Cart extends Component {
                   this.props.ReduxStore?.cart?.CartItems[0]?.price?.split(
                     ' '
                   )[0]
-                }{' '}
+                }
                 {this.props.ReduxStore?.cart?.CartItems.reduce(
                   (acc, item) =>
                     acc + item.price.split(' ')[1] * item.qty * 0.21,
@@ -180,7 +182,7 @@ class Cart extends Component {
                   this.props.ReduxStore?.cart?.CartItems[0]?.price?.split(
                     ' '
                   )[0]
-                }{' '}
+                }
                 {this.props.ReduxStore?.cart?.CartItems.reduce(
                   (acc, item) => acc + item.price.split(' ')[1] * item.qty,
                   0

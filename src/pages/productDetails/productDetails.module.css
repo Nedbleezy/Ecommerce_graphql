@@ -28,24 +28,61 @@
 }
 
 .brand {
-  font-size: 2rem;
   margin-bottom: 10px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 27px;
+
+  color: #1d1f22;
 }
-.name {
+.name1 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+}
+.name {
+  /* font-size: 1.5rem; */
+  margin-bottom: 10px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 27px;
+  align-items: center;
+
+  color: #1d1f22;
 }
 
-.SizeColorBtn {
+.SizeBtn {
   padding: 10px;
   cursor: pointer;
   margin-right: 7px;
-  font-size: 1.5rem;
   margin-top: 10px;
   background-color: #fff;
   border: 1px solid #1d1f22;
-  height: 70px;
-  width: 70px;
+  height: 45px;
+  width: 63px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #292929;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+.ColorBtn {
+  width: 36px;
+  height: 36px;
+  margin-right: 7px;
+  border: 1px solid #5ece7b;
+  cursor: pointer;
 }
 .SizeColorXtra {
   background-color: var(--blk);
@@ -68,10 +105,15 @@
   padding: 15px;
   cursor: pointer;
   margin-right: 7px;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   margin-top: 10px;
   background-color: #fff;
   border: 1px solid #1d1f22;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
 }
 .touchXtra {
   background-color: var(--blk);

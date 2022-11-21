@@ -18,25 +18,59 @@
 
 .minicart {
   background: #fff;
-  width: 400px;
-  height: 50vh;
   margin-right: 2.5%;
   position: relative;
+  width: 360px;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .checkoutBtn {
-  padding: 10px;
   border: none;
   background: var(--green);
-  color: #fff;
   cursor: pointer;
+  padding: 16px 32px;
+  text-transform: uppercase;
+  font-style: normal;
   font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  color: #ffffff;
+  width: 140px;
+  height: 43px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
+.checkoutBtn button {
+  border: none;
+  background: var(--green);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  width: 81px;
+  height: 17px;
+  text-align: center;
+  color: #ffffff;
+}
+
 .viewBtn {
-  padding: 10px;
-  border: 1px solid black;
+  padding: 16px 32px;
+  border: 1px solid #1d1f22;
   cursor: pointer;
   font-weight: 600;
   background: #fff;
+  width: 140px;
+  height: 43px;
+  text-align: center;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  color: #1d1f22;
 }
 .viewCheckCover {
   display: flex;
@@ -64,7 +98,12 @@
   right: 0;
   top: 0;
   background: #fff;
-  font-size: 18px;
+  color: #1d1f22;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
 }
 .myItems {
   padding: 10px;
@@ -86,7 +125,14 @@
 .cardItemLeft {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  justify-content: space-between;
+
+  width: 165px;
+  margin-right: 20px;
+}
+.Dflex {
+  display: flex;
+  justify-content: space-between;
 }
 .LeftInnerDiv {
   color: black;
@@ -94,7 +140,7 @@
   font-size: 0.8rem;
 }
 .cardItemRight {
-  width: 50%;
+  width: 150px;
 }
 
 .brand {
@@ -203,8 +249,13 @@
 }
 .miniIMG {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+
+  height: 100%;
 }
 .IMGW {
   position: relative;
+  height: 100%;
+
+  width: 100%;
 }

@@ -5,64 +5,85 @@ import WithRouter from '../../utils/WithRouter';
 
 import Svg from './Svg';
 
-import { changeID } from '../../features/quickshop/quickShopSlice';
-import QuickAdd from './QuickAdd';
+import { AddToCART } from '../../features/cart/cartSlice';
 
 class Card extends Component {
-  OpenQuickAddToCart = () => {
-    const modal = document.getElementById('quickAdd');
-    modal.classList.add('quickAdd');
-  };
   render() {
-    const { name, brand, id, gallery, inStock, prices } = this.props;
+    const { name, brand, id, gallery, inStock, prices, attributes } =
+      this.props;
 
-    const { currencyIndex } = this.props.ReduxStore.switcher;
+    const {
+      currencyIndex,
+      colorIndex,
+      sizeIndex,
+      capacityIndex,
+      usbIndex,
+      touchIndex,
+    } = this.props.ReduxStore.switcher;
+    const img = gallery[0];
+    const label = prices[currencyIndex]?.currency?.symbol;
+    let price = label + ' ' + prices[currencyIndex]?.amount;
 
     return (
-      <div>
-        <QuickAdd />
-        <div
-          className={styles.card}
-          onClick={(e) => {
-            e.stopPropagation();
-            this.props.router.navigate(`/product/${id}`);
-          }}
-        >
-          <div className={styles.imgWrapper}>
-            <img
-              src={gallery[0]}
-              alt={brand}
-              className={`${styles.productImg} ${
-                !inStock ? styles.productOutofStock : ''
-              }`}
-            />
-            <div
-              className={styles.svgWrapper}
-              onClick={(e) => {
-                e.stopPropagation();
-
-                this.OpenQuickAddToCart({ id });
-                this.props.quickShop(id);
-              }}
-            >
-              <Svg />
-            </div>
-          </div>
-          <div
-            className={`${styles.cardFooter} ${
-              !inStock ? styles.greyText : ''
+      <div
+        className={styles.card}
+        onClick={(e) => {
+          e.stopPropagation();
+          this.props.router.navigate(`/product/${id}`);
+        }}
+      >
+        <div className={styles.imgWrapper}>
+          <img
+            src={gallery[0]}
+            alt={brand}
+            className={`${styles.productImg} ${
+              !inStock ? styles.productOutofStock : ''
             }`}
+          />
+          <div
+            className={styles.svgWrapper}
+            onClick={(e) => {
+              e.stopPropagation();
+
+              this.props.addToCart({
+                id,
+                name,
+                brand,
+                price,
+                img,
+                attributes,
+                colorIndex,
+                sizeIndex,
+                capacityIndex,
+                usbIndex,
+                touchIndex,
+                comp: {
+                  colorIndex,
+                  sizeIndex,
+                  capacityIndex,
+                  usbIndex,
+                  touchIndex,
+                },
+              });
+            }}
           >
-            <p>
-              {brand} {name}
-            </p>
-            <h3 className={styles.price}>
-              {prices[currencyIndex].currency.symbol}{' '}
-              {prices[currencyIndex].amount}
-            </h3>
+            <Svg />
           </div>
-          <div className={!inStock ? styles.outofStock : ''}></div>
         </div>
+        <div
+          className={`${styles.cardFooter} ${!inStock ? styles.greyText : ''}`}
+        >
+          <p>
+            {brand} {name}
+          </p>
+          <h3 className={styles.price}>
+            <span>
+              {prices[currencyIndex].currency.symbol}
+              {prices[currencyIndex].amount}
+            </span>
+          </h3>
+        </div>
+        <div className={!inStock ? styles.outofStock : ''}></div>
       </div>
     );
   }
@@ -76,7 +97,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    quickShop: (id) => dispatch(changeID(id)),
+    addToCart: (data) => dispatch(AddToCART(data)),
   };
 };
 

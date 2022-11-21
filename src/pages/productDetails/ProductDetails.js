@@ -102,7 +102,7 @@ class ProductDetails extends Component {
               {this.state.attributes?.length !== 0 &&
                 this.state.attributes.map((attribute, i) => (
                   <div key={i}>
-                    <h4 className={styles.name}>{attribute.name}</h4>
+                    <h4 className={styles.name1}>{attribute.name}:</h4>
                     <div className={styles.touchCover}>
                       {attribute.name === 'Color' &&
                         attribute.items.map((u, c) => (
@@ -116,7 +116,7 @@ class ProductDetails extends Component {
                               onClick={() => {
                                 this.props.changeColor(c);
                               }}
-                              className={`${styles.SizeColorBtn} ${
+                              className={`${styles.ColorBtn} ${
                                 c === colorIndex ? styles.ColorXtra : ''
                               }`}
                             ></button>
@@ -133,7 +133,7 @@ class ProductDetails extends Component {
                               onClick={() => {
                                 this.props.changeSize(index);
                               }}
-                              className={`${styles.SizeColorBtn} ${
+                              className={`${styles.SizeBtn} ${
                                 index === sizeIndex ? styles.SizeColorXtra : ''
                               }`}
                             >
@@ -210,8 +210,8 @@ class ProductDetails extends Component {
                 <h3>
                   <span>
                     {this.state.prices[CurrencyIndex]?.currency?.symbol}
-                  </span>{' '}
-                  {this.state.prices[CurrencyIndex]?.amount}
+                    {this.state.prices[CurrencyIndex]?.amount}
+                  </span>
                 </h3>
               </div>
 

@@ -59,17 +59,28 @@ class NavBar extends Component {
     }
   };
   outsideClick2 = (e) => {
-    const SelectBtn = document.querySelector('.selectBBtn');
     const optionMenu = document.querySelector('#menuU');
-    const optMenu = document.querySelector('.sBtn-text');
 
-    if (
-      e.target === SelectBtn ||
-      e.target === optMenu ||
-      e.target.className.animVal === 'bi bi-chevron-down'
+    if (e.target.className === 'allproductsStyle_container__m8HSE') {
+      optionMenu.classList.remove('active');
+    } else if (
+      e.target.className === 'tech_container__Wsooi' ||
+      e.target.className === 'navStyles_Linky__YGJw8 navStyles_Link__Pe9fo'
     ) {
-      optionMenu.classList.add('active');
-    } else {
+      optionMenu.classList.remove('active');
+    } else if (e.target.className === 'clothe_container__BVeJj') {
+      optionMenu.classList.remove('active');
+    } else if (e.target.id === 'root') {
+      optionMenu.classList.remove('active');
+    } else if (
+      e.target.className === 'productDetails_flexRight__q3Jc9' ||
+      e.target.className === 'productDetails_brand__0OxQj'
+    ) {
+      optionMenu.classList.remove('active');
+    } else if (
+      e.target.className === 'productDetails_touchCover__1JbrL' ||
+      e.target.className === 'productDetails_name1__q4RsJ'
+    ) {
       optionMenu.classList.remove('active');
     }
   };
@@ -86,7 +97,7 @@ class NavBar extends Component {
 
     options.forEach((option) => {
       option.addEventListener('click', () => {
-        const selected = option.querySelector('.optionText').innerText;
+        const selected = option.querySelector('#optionText').innerText;
         sBtnText.innerText = selected;
       });
     });
@@ -124,7 +135,10 @@ class NavBar extends Component {
             <div className={styles.navRight}>
               <OptionMenu className='Menu' id='navRighty'>
                 <SelectBtn className='selectBBtn' onClick={this.DropdownD}>
-                  <span className='sBtn-text'> {symbol}</span>
+                  <span className='sBtn-text' style={{ fontWeight: 'bold' }}>
+                    {' '}
+                    {symbol}
+                  </span>
                   <span className={styles.chevron} id='caaret'>
                     <Arrow />
                   </span>
@@ -136,9 +150,14 @@ class NavBar extends Component {
                       <Option
                         className='option'
                         key={currency.symbol}
-                        onClick={() => this.props.changeCurrency(index)}
+                        onClick={() => {
+                          this.DropdownD();
+                          this.props.changeCurrency(index);
+                        }}
                       >
-                        <span className={styles.icon}>{currency.symbol}</span>
+                        <span className={styles.icon} id='optionText'>
+                          {currency.symbol}
+                        </span>
                         <span className='optionText'>{currency.label}</span>
                       </Option>
                     )
@@ -163,7 +182,6 @@ class NavBar extends Component {
           </nav>
           {this.state.isHovering && <Modal />}
         </header>
-        {/* <QuickAdd /> */}
       </div>
     );
   }

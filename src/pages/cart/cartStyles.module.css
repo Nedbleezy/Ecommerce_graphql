@@ -80,8 +80,8 @@
   color: #fff;
   padding: 0 10px;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -90,8 +90,8 @@
   color: #fff;
   padding: 0 10px;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -100,6 +100,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin-right: 2px;
+  /* align-items: stretch; */
 }
 .decreBTN {
   width: 60px;
@@ -138,10 +139,10 @@
 }
 .WrapperBTN {
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
   margin-right: 7px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-top: 10px;
   border: 1px solid #1d1f22;
   background-color: #fff;
@@ -165,15 +166,23 @@
 
 .SIZECOVER {
   border: 1px solid #1d1f22;
-  width: 70px;
-  height: 70px;
+  width: 63px;
+  height: 45px;
   background: #fff;
   text-align: center;
   padding: 15px;
   cursor: pointer;
   margin-right: 7px;
-  font-size: 1.5rem;
+
   margin-top: 10px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 18px;
+  color: #1d1f22;
 }
 .SIZEXTRA {
   background: black;
@@ -181,8 +190,8 @@
 }
 
 .COLORCOVER {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   border: 1px solid #1d1f22;
   text-align: center;
   padding-top: 3px;
@@ -202,6 +211,16 @@
 .brandy {
   padding-bottom: 10px;
   font-size: 30px;
+}
+.brandyy {
+  padding-bottom: 10px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: #1d1f22;
 }
 .ItemCover {
   padding-bottom: 0.2rem;
