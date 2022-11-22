@@ -58,7 +58,9 @@ class NavBar extends Component {
       modal.style.display = 'none';
     }
   };
+
   outsideClick2 = (e) => {
+    console.log(e.target.className);
     const optionMenu = document.querySelector('#menuU');
 
     if (e.target.className === 'allproductsStyle_container__m8HSE') {
@@ -68,7 +70,10 @@ class NavBar extends Component {
       e.target.className === 'navStyles_Linky__YGJw8 navStyles_Link__Pe9fo'
     ) {
       optionMenu.classList.remove('active');
-    } else if (e.target.className === 'clothe_container__BVeJj') {
+    } else if (
+      e.target.className === 'clothe_container__BVeJj' ||
+      e.target.className === 'cartStyles_cartHeading__sjHXJ'
+    ) {
       optionMenu.classList.remove('active');
     } else if (e.target.id === 'root') {
       optionMenu.classList.remove('active');
