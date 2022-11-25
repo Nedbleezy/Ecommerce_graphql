@@ -60,7 +60,6 @@ class NavBar extends Component {
   };
 
   outsideClick2 = (e) => {
-    console.log(e.target.className);
     const optionMenu = document.querySelector('#menuU');
 
     if (e.target.className === 'allproductsStyle_container__m8HSE') {
