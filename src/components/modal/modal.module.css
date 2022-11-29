@@ -126,6 +126,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: stretch;
 
   width: 165px;
   margin-right: 20px;
@@ -222,14 +223,17 @@
 }
 
 .btnQty {
-  font-size: 1.7rem;
-  padding: 0 5px 5px;
+  font-size: 1.9rem;
+  padding: 5px;
   cursor: pointer;
   background: #fff;
   border: 1px solid black;
   width: 28px;
   height: 28px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .btnCoverRR {
   text-align: center;
@@ -239,7 +243,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: space-between;
   margin-right: 3px;
 }
 
