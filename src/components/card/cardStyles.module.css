@@ -1,7 +1,7 @@
 .card {
   padding: 16px;
-  width: 406px;
-  height: 464px;
+  width: 450px;
+  height: 500px;
   transition: all 0.5s ease;
   position: relative;
   cursor: pointer;
@@ -56,7 +56,7 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 160%;
 }
 .price {
@@ -65,7 +65,7 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 160%;
 }
 /* .outofStock {
@@ -74,8 +74,8 @@
 
 .outofStock::before {
   content: 'OUT OF STOCK ';
-  width: 406px;
-  height: 464px;
+  width: 450px;
+  height: 500px;
   position: absolute;
   left: 0;
   bottom: 0;
