@@ -12,7 +12,7 @@ export const getproductDetails = createAsyncThunk(
   'product/fetchdetails',
   (id) => {
     return axios
-      .post('http://localhost:4000/graphgl', {
+      .post('https://apollo-ecommerce-backend.herokuapp.com/', {
         query: GET_PRODUCTDETAILS_BY_ID,
         variables: {
           id: id,
