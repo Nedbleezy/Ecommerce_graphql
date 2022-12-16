@@ -8,9 +8,11 @@ const initialState = {
   error: null,
 };
 
+const URL = 'https://graphqlbackend-production.up.railway.app/';
+const localhost = 'http://localhost:4000/';
 export const getproductDetails = createAsyncThunk('product/fetchdetails', (id) => {
   return axios
-    .post('http://localhost:4000/', {
+    .post(URL || localhost, {
       query: GET_PRODUCTDETAILS_BY_ID,
       variables: {
         id: id,
